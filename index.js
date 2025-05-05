@@ -31,3 +31,20 @@ const decrementCounter = () =>{
 //         payload: user,
 //     };
 // }
+
+//reducer - pure function - takes state and action and returns new state
+const counderReducer = (state = initialCounterState, action) =>{
+
+    switch(action.type){
+        case INCREMENT:
+            return {
+                ...state,
+                count: state.count + 1,
+            }
+        case DECREMENT:
+            return {
+                ...state,
+                count: state.count - 1,
+            }
+    }
+}
