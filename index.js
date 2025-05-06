@@ -61,3 +61,12 @@ store.subscribe(()=>{
 //dispatch action - call the action and pass it to the store
 store.dispatch(incrementCounter());
 store.dispatch(decrementCounter());
+
+
+
+//state - count:0
+//action - increment,decrement,reset
+//reducer - pure function - takes state and action and returns new state
+//store - create store - takes reducer and returns store
+
+//redux ei 4 step e kaj kore - state, action, reducer, store
