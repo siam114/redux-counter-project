@@ -1,3 +1,5 @@
+const { createStore } = require("redux");
+
 //constants 
 const GET_TODOS_REQUEST = 'GET_TODOS_REQUEST';
 const GET_TODOS_SUCCESS = 'GET_TODOS_SUCCESS';
@@ -56,3 +58,13 @@ const todosReducer = (state=initialTodosState , action) =>{
             }
     }
 }
+
+
+//store
+const store = createStore(todosReducer);
+
+store.subscribe(()=>{
+    console.log(store.getState())
+});
+
+//dispatch
