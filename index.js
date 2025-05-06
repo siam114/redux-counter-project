@@ -9,11 +9,9 @@ const ADD_USER = 'ADD_USER';
 //state
 const initialCounterState = {
     count: 0,
-};
-
-const initialUserState = {
     users: [{name: 'Siam'}],
 };
+
 
 //action - object -type and payload
 const incrementCounter = () =>{
@@ -34,12 +32,12 @@ const resetConterAction = ()=>{
     }
 }
 
-// const addUser = (user) =>{
-//     return {
-//         type: ADD_USER,
-//         payload: user,
-//     };
-// }
+const addUser = (user) =>{
+    return {
+        type: ADD_USER,
+        payload: user,
+    };
+}
 
 
 //reducer - pure function - takes state and action and returns new state
@@ -64,6 +62,12 @@ const counderReducer = (state = initialCounterState, action) =>{
                 count: 0,
             }
 
+        case ADD_USER:
+            return {
+                ...state,
+                users: [...state.users, action.payload],
+            }
+
         default:
             return state;
     }
@@ -83,7 +87,7 @@ store.dispatch(decrementCounter());
 store.dispatch(incrementCounter());
 store.dispatch(incrementCounter());
 store.dispatch(resetConterAction())
-
+store.dispatch(addUser({name: 'Siam'}));
 
 
 //state - count:0
