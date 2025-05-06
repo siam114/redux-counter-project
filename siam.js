@@ -1,3 +1,5 @@
+const {createStore} = require('redux');
+
 //constant
 const GET_PRODUCTS = 'GET_PRODUCTS';
 const ADD_PRODUCT = 'ADD_PRODUCT';
@@ -35,8 +37,18 @@ const productReducer = (state=initialProductState, action) =>{
                 products: [...state.products, action.payload],
                 numberofProducts: state.numberofProducts + 1,
             };
-            
+
         default:
             return state;
     }
 }
+
+//store
+const store = createStore(productReducer);
+store.subscribe(()=>{
+    console.log(store.getState());
+})
+
+// dispatch
+store.dispatch(getProducts());
+store.dispatch(addProduct('milk'));
