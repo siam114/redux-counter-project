@@ -11,6 +11,7 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
+    "anisul-practice": "file:",
     "redux": "^5.0.1"
   }
 }
