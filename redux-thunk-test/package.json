@@ -1,5 +1,5 @@
 {
-  "name": "anisul-practice",
+  "name": "redux-thunk-test",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
-    "anisul-practice": "file:",
     "axios": "^1.9.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0"
