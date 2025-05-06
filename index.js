@@ -3,6 +3,7 @@ const {createStore} = require('redux');
 // defining const
 const INCREMENT = 'INCREMENT';
 const DECREMENT = 'DECREMENT';
+const RESET = 'RESET';
 const ADD_USER = 'ADD_USER';
 
 //state
@@ -27,12 +28,19 @@ const decrementCounter = () =>{
     };
 }
 
+const resetConterAction = ()=>{
+    return {
+        type: 'RESET',
+    }
+}
+
 // const addUser = (user) =>{
 //     return {
 //         type: ADD_USER,
 //         payload: user,
 //     };
 // }
+
 
 //reducer - pure function - takes state and action and returns new state
 const counderReducer = (state = initialCounterState, action) =>{
@@ -43,13 +51,24 @@ const counderReducer = (state = initialCounterState, action) =>{
                 ...state,
                 count: state.count + 1,
             }
+
         case DECREMENT:
             return {
                 ...state,
                 count: state.count - 1,
             }
+
+        case RESET:
+            return {
+                ...state,
+                count: 0,
+            }
+
+        default:
+            return state;
     }
 }
+
 
 //create store - takes reducer and returns store
 const store = createStore(counderReducer);
@@ -61,6 +80,9 @@ store.subscribe(()=>{
 //dispatch action - call the action and pass it to the store
 store.dispatch(incrementCounter());
 store.dispatch(decrementCounter());
+store.dispatch(incrementCounter());
+store.dispatch(incrementCounter());
+store.dispatch(resetConterAction())
 
 
 
