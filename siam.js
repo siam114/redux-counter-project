@@ -22,3 +22,21 @@ const addProduct = (product) =>{
 }
 
 //productReducer
+const productReducer = (state=initialProductState, action) =>{
+    switch(action.type){
+        case GET_PRODUCTS:
+            return {
+                ...state,
+            };
+
+        case ADD_PRODUCT:
+            return {
+                ...state,
+                products: [...state.products, action.payload],
+                numberofProducts: state.numberofProducts + 1,
+            };
+            
+        default:
+            return state;
+    }
+}
