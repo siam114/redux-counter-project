@@ -70,7 +70,8 @@ const fetchData = () => {
             .get(API_URL)
             .then((res) => {
                 const todos = res.data;
-                dispatch(getTodosSuccess(todos));
+                const title = todos.map((todo) => todo.title);
+                dispatch(getTodosSuccess(title));
             })
             .catch((error) => {
                 dispatch(getTodosFailure(error.message));
